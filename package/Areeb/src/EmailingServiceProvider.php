@@ -14,6 +14,6 @@ class EmailingServiceProvider extends ServiceProvider
 
     public function register()
     {
-        # code...
+        #TODO
     }
 }

@@ -13,7 +13,7 @@
             This is a test mail from {{ $validated['sender'] }}
         </p>
         <p>
-            over here we can use mailgun, mailtrap
+            over here we can use mailgun, mailtrap, sendgrid
         </p>
     </div>
 
