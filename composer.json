@@ -26,7 +26,8 @@
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/",
-            "Areeb\\": "package/Areeb/src/"
+            "Areeb\\": "package/Areeb/src/",
+            "Areeb\\Mail\\": "package/Areeb/Mail/"
         }
     },
     "autoload-dev": {
