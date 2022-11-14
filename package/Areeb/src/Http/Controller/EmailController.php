@@ -3,7 +3,7 @@
 namespace Areeb\Http\Controller;
 
 use App\Http\Controllers\Controller;
-use Areeb\Mail\MailGunEmail;
+use Areeb\Mail\Emails;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
@@ -28,7 +28,7 @@ class EmailController extends Controller
             return "mail cannot be sent";
         }
         $validated = $validator->validated();
-        Mail::queue((new MailGunEmail($validated))->onQueue('emails'));
+        Mail::queue((new Emails($validated))->onQueue('emails'));
         return "mail has been sent";
     }
 }

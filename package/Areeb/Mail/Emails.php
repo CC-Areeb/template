@@ -8,7 +8,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Attachment;
 use Illuminate\Queue\SerializesModels;
 
-class MailGunEmail extends Mailable implements ShouldQueue
+class Emails extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
 
