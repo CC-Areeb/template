@@ -3,7 +3,7 @@
 @section('content')
     <div id="main_heading">
         <h1>
-            Welcome to Mailgun
+            Welcome to my mailing template
         </h1>
     </div>
 
@@ -11,6 +11,9 @@
         <strong>Welcome,</strong> {{ $validated['to'] }}
         <p>
             This is a test mail from {{ $validated['sender'] }}
+        </p>
+        <p>
+            over here we can use mailgun, mailtrap
         </p>
     </div>
 
