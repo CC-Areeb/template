@@ -186,7 +186,8 @@ return [
          * Package Service Providers...
          */
 
-        Areeb\EmailingServiceProvider::class,
+        CooperativeComputing\EmailingServiceProvider::class,
+        CooperativeComputingSMS\SmsServiceProvider::class,
 
         /*
          * Application Service Providers...
