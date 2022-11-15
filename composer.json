@@ -10,7 +10,8 @@
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7",
-        "twbs/bootstrap": "5.2.2"
+        "twbs/bootstrap": "5.2.2",
+        "twilio/sdk": "^6.43"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
@@ -26,8 +27,10 @@
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/",
-            "Areeb\\": "package/Areeb/src/",
-            "Areeb\\Mail\\": "package/Areeb/Mail/"
+            "CooperativeComputing\\": "package/CC-Mail/src/",
+            "CooperativeComputing\\Mail\\": "package/CC-Mail/Mail/",
+            "CooperativeComputingSMS\\": "package/CC-SMS/src/",
+            "CooperativeComputingSMS\\SMS\\": "package/CC-SMS/SMS/"
         }
     },
     "autoload-dev": {

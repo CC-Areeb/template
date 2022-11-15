@@ -38,7 +38,13 @@ The environment variables are provided in a text file called **keys.txt**
  
 For further instructions use the link provided for sendgrid https://www.digitalocean.com/community/tutorials/how-to-create-a-laravel-contact-form-and-send-emails-with-sendgrid 
 -
+--- 
 
+# Twilio
+- First visite their official website **https://www.twilio.com/** and create your free account.
+- Next you have to make sure you have a verified phone number as twilio will be sending messages to that number.
+- Next you need to set he twilio environment keys like you did for the mailing system.
+- After that you will be guided on how to use based on the langauge you are working with.
 
 ## Environment Variables
 
@@ -85,11 +91,22 @@ To run this project, you will need to add the following environment variables to
 `MAIL_PASSWORD=sendgrid_api_key`
 \
 `MAIL_ENCRYPTION=tls`
+
+***Twilio***
+\
+`TWILIO_ACCOUNT_SID=YOUR_TWILIO_SID_FROM_TWILIO`
+\
+`TWILIO_AUTH_TOKEN=YOUR_TWILIO_AUTH_TOKEN_FROM_TWILIO`
+\
+`TWILIO_SENDER=YOUR_TWILIO_PHONE_NUMBER_FROM_TWILIO (optional)`
+
 ## composer.json
 Add these in your composer json file, inside autoload > psr-4
 ```javascript
-"Areeb\\": "package/Areeb/src/",
-"Areeb\\Mail\\": "package/Areeb/Mail/"
+"CooperativeComputing\\": "package/CC-Mail/src/",
+"CooperativeComputing\\Mail\\": "package/CC-Mail/Mail/",
+"CooperativeComputingSMS\\": "package/CC-SMS/src/",
+"CooperativeComputingSMS\\SMS\\": "package/CC-SMS/SMS/"
 ```
 ## app.php
 Add the service provider
@@ -98,5 +115,20 @@ Add the service provider
 * Package Service Providers...
 */
 
-Areeb\EmailingServiceProvider::class,
+CooperativeComputing\EmailingServiceProvider::class,
+CooperativeComputingSMS\SmsServiceProvider::class,
+```
+## SMSController
+This is example to set up and send your sms to a verified phone number 
+```php
+$sender = env('TWILIO_SENDER');
+$sid = env('TWILIO_ACCOUNT_SID');
+$authToken = env('TWILIO_AUTH_TOKEN');
+$twilio = new Client($sid, $authToken);
+$twilio->messages->create("+92".$request->sms_receiver, [
+        "body" => $request->sms_message,
+        "from" => $sender,
+        "mediaUrl" => ["https://demo.twilio.com/owl.png"]
+    ]
+);
 ```
